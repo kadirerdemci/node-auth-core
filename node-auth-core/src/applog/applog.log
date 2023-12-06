@@ -1,0 +1,47 @@
+2023-12-04T13:26:06.641Z - Method: GET, Path: /api/auth/secure-endpoint, User: kadirerdemci
+2023-12-04T13:26:21.559Z - Method: GET, Path: /api/auth/secure-endpoint, User: kadirerdemci
+2023-12-04T13:26:22.881Z - Method: GET, Path: /api/auth/secure-endpoint, User: kadirerdemci
+2023-12-04T13:26:23.342Z - Method: GET, Path: /api/auth/secure-endpoint, User: kadirerdemci
+2023-12-04T13:26:24.079Z - Method: GET, Path: /api/auth/secure-endpoint, User: kadirerdemci
+2023-12-04T13:26:24.285Z - Method: GET, Path: /api/auth/secure-endpoint, User: kadirerdemci
+2023-12-04T13:35:27.775Z - Method: GET, Path: /api/auth/secure-endpoint, User: kadirerdemci
+2023-12-04T13:35:28.666Z - Method: GET, Path: /api/auth/secure-endpoint, User: kadirerdemci
+[object Object]  2023-12-04T14:27:40.966Z - Method: GET, Path: /api/auth/secure-endpoint, User: kadirerdemci
+2023-12-04T14:34:01.520Z - GET /api/auth/secure-endpoint - User: kadirerdemci - Status: 200
+2023-12-04T14:34:03.537Z - GET /api/auth/secure-endpoint - User: kadirerdemci - Status: 200
+2023-12-04T14:34:37.118Z - GET /api/auth/secure-endpoint - User: kadirerdemci - Status: 200
+2023-12-04T14:34:37.795Z - GET /api/auth/secure-endpoint - User: kadirerdemci - Status: 200
+2023-12-04T14:34:38.553Z - GET /api/auth/secure-endpoint - User: kadirerdemci - Status: 200
+2023-12-04T18:22:44.858Z - GET /api/auth/secure-endpoint - User: kadirerdemci34567 - Status: 200
+2023-12-04T18:22:49.815Z - GET /api/auth/secure-endpoint - User: kadirerdemci34567 - Status: 200
+2023-12-04T18:24:15.065Z - GET /api/auth/secure-endpoint - User: kadirerdemci34567 - Status: 200
+2023-12-04T18:24:16.266Z - GET /api/auth/secure-endpoint - User: kadirerdemci34567 - Status: 200
+2023-12-04T18:35:27.247Z - GET /api/auth/secure-endpoint - User: kadirerdemci34567 - Status: 200
+2023-12-04T18:35:28.346Z - GET /api/auth/secure-endpoint - User: kadirerdemci34567 - Status: 200
+2023-12-04T18:35:29.231Z - GET /api/auth/secure-endpoint - User: kadirerdemci34567 - Status: 200
+2023-12-04T18:37:39.441Z - GET /api/auth/secure-endpoint - User: kadirerdemci34567 - Status: 200
+2023-12-04T18:42:45.037Z - GET /api/auth/secure-endpoint - User: kadirerdemci34567 - Status: 200
+2023-12-05T06:11:53.845Z - GET /api/auth/secure-endpoint - User: string - Status: 200
+2023-12-05T08:38:57.443Z - GET /api/auth/secure-endpoint - User: string32asdasd235324 - Status: 200
+2023-12-05T08:39:03.572Z - GET /api/auth/secure-endpoint - User: string32asdasd235324 - Status: 200
+2023-12-05T08:39:04.237Z - GET /api/auth/secure-endpoint - User: string32asdasd235324 - Status: 200
+2023-12-05T08:39:04.912Z - GET /api/auth/secure-endpoint - User: string32asdasd235324 - Status: 200
+2023-12-05T08:39:18.216Z - GET /api/auth/secure-endpoint - User: string32asdasd235324 - Status: 200
+2023-12-06T06:15:26.455Z - GET /api/auth/secure-endpoint - User: onur.evren - Status: 200
+2023-12-06T09:19:05.692Z - GET /api/auth/secure-endpoint - User: kadirerdemci - Status: 200
+2023-12-06T09:54:39.887Z - GET /api/auth/secure-endpoint - User: kadirerdemci - Status: 200
+2023-12-06T09:54:40.906Z - GET /api/auth/secure-endpoint - User: kadirerdemci - Status: 200
+2023-12-06T09:54:41.414Z - GET /api/auth/secure-endpoint - User: kadirerdemci - Status: 200
+2023-12-06T09:54:41.760Z - GET /api/auth/secure-endpoint - User: kadirerdemci - Status: 200
+2023-12-06T09:54:42.069Z - GET /api/auth/secure-endpoint - User: kadirerdemci - Status: 200
+2023-12-06T09:54:42.614Z - GET /api/auth/secure-endpoint - User: kadirerdemci - Status: 200
+2023-12-06T09:54:42.936Z - GET /api/auth/secure-endpoint - User: kadirerdemci - Status: 200
+2023-12-06T09:54:43.136Z - GET /api/auth/secure-endpoint - User: kadirerdemci - Status: 200
+2023-12-06T09:54:43.291Z - GET /api/auth/secure-endpoint - User: kadirerdemci - Status: 200
+2023-12-06T09:54:43.424Z - GET /api/auth/secure-endpoint - User: kadirerdemci - Status: 200
+2023-12-06T09:54:43.548Z - GET /api/auth/secure-endpoint - User: kadirerdemci - Status: 200
+2023-12-06T09:54:43.688Z - GET /api/auth/secure-endpoint - User: kadirerdemci - Status: 200
+2023-12-06T09:54:43.820Z - GET /api/auth/secure-endpoint - User: kadirerdemci - Status: 200
+2023-12-06T09:54:43.954Z - GET /api/auth/secure-endpoint - User: kadirerdemci - Status: 200
+2023-12-06T09:54:44.098Z - GET /api/auth/secure-endpoint - User: kadirerdemci - Status: 200
+2023-12-06T09:54:44.250Z - GET /api/auth/secure-endpoint - User: kadirerdemci - Status: 200
