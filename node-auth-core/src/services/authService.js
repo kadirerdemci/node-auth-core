@@ -14,6 +14,8 @@ const generateToken = (user) => {
     email: user.email,
   };
 
+  console.log("object");
+
   return jwt.sign(payload, jwtSecret, { expiresIn });
 };
 
