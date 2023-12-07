@@ -116,7 +116,6 @@ exports.verifyEmail = async (req, res) => {
         );
     }
 
-
     if (user.verificationCode !== verificationCode) {
       return res
         .status(400)
@@ -124,7 +123,7 @@ exports.verifyEmail = async (req, res) => {
           new ServiceResponse(false, "Invalid verification code", null, 400)
         );
     }
-    
+
     if (user.isVerified) {
       return res
         .status(400)
@@ -233,9 +232,11 @@ exports.deleteUser = async (userId) => {
   }
 };
 
-exports.searchUser = async (username) => {
+exports.searchUserByUsername = async (username) => {
   try {
-    const user = await User.findByPk(username, {
+    // Kullanıcıyı "id" yerine "username" ile ara
+    const user = await User.findOne({
+      where: { username }, // "id" yerine "username" kullanıldı
       attributes: { exclude: ["password"] },
     });
 
@@ -245,8 +246,7 @@ exports.searchUser = async (username) => {
 
     return new ServiceResponse(true, "User found successfully", user, 200);
   } catch (error) {
-    console.error("Error in searchUser:", error);
+    console.error("Error in searchUserByUsername:", error);
     return new ServiceResponse(false, "Internal Server Error", null, 500);
   }
 };
-

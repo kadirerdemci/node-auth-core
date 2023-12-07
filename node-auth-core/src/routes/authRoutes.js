@@ -203,14 +203,18 @@ router.delete("/delete-user/:id", authenticateUser, async (req, res) => {
  *       '200':
  *         description: Successful search for the user by username
  */
-router.get("/search-user-by-username/:username", authenticateUser, async (req, res) => {
-  const username = req.params.username;
-  const result = await searchUserByUsername(username);
-  
-  if (result.success) {
-    res.status(200).json(result);
-  } else {
-    res.status(result.statusCode).json(result);
+router.get(
+  "/search-user-by-username/:username",
+  authenticateUser,
+  async (req, res) => {
+    const username = req.params.username;
+    const result = await searchUserByUsername(username);
+
+    if (result.success) {
+      res.status(200).json(result);
+    } else {
+      res.status(result.statusCode).json(result);
+    }
   }
-});
+);
 module.exports = router;
