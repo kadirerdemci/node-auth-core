@@ -11,9 +11,10 @@ const express = require("express");
 const { register, login } = require("../controllers/authController");
 const { authenticateUser } = require("../middlewares/authMiddleware");
 const { handleErrors } = require("../middlewares/errorMiddleware");
+const { verifyEmail } = require("../controllers/authController");
 const logUserMiddleware = require("../middlewares/logUserMiddleware");
 const timingMiddleware = require("../middlewares/timingMiddleware");
-const rateLimiterWithBan = require("../middlewares/rateLimitterMiddleware"); 
+const rateLimiterWithBan = require("../middlewares/rateLimitterMiddleware");
 const router = express.Router();
 
 /**
@@ -73,7 +74,7 @@ router.post("/register", register, logUserMiddleware);
  */
 router.post(
   "/login",
-  rateLimiterWithBan, 
+  rateLimiterWithBan,
   login,
   logUserMiddleware,
   timingMiddleware
@@ -104,5 +105,32 @@ router.get(
     });
   }
 );
+
+/**
+ * @swagger
+ * /api/auth/verify-email:
+ *   post:
+ *     summary: Verify user's email with verification code
+ *     tags:
+ *       - Authentication
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *               verificationCode:
+ *                 type: string
+ *             required:
+ *               - email
+ *               - verificationCode
+ *     responses:
+ *       '200':
+ *         description: Email verification successful
+ */
+router.post("/verify-email", verifyEmail, logUserMiddleware);
 
 module.exports = router;

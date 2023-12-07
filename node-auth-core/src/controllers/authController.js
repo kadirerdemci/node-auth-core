@@ -101,13 +101,35 @@ exports.verifyEmail = async (req, res) => {
   try {
     const { email, verificationCode } = req.body;
 
-    const user = await User.findOne({ where: { email, verificationCode } });
+    const user = await User.findOne({ where: { email } });
 
     if (!user) {
       return res
         .status(400)
         .json(
+          new ServiceResponse(
+            false,
+            "Invalid email or verification code",
+            null,
+            400
+          )
+        );
+    }
+
+
+    if (user.verificationCode !== verificationCode) {
+      return res
+        .status(400)
+        .json(
           new ServiceResponse(false, "Invalid verification code", null, 400)
+        );
+    }
+    
+    if (user.isVerified) {
+      return res
+        .status(400)
+        .json(
+          new ServiceResponse(false, "User is already verified", null, 400)
         );
     }
 

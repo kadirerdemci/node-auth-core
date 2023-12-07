@@ -1,5 +1,3 @@
-//kullanıcıları listeleyen api controllerı
-
 
 
 
