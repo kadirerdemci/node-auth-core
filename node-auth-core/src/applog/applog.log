@@ -45,3 +45,4 @@
 2023-12-06T09:54:43.954Z - GET /api/auth/secure-endpoint - User: kadirerdemci - Status: 200
 2023-12-06T09:54:44.098Z - GET /api/auth/secure-endpoint - User: kadirerdemci - Status: 200
 2023-12-06T09:54:44.250Z - GET /api/auth/secure-endpoint - User: kadirerdemci - Status: 200
+2023-12-07T11:02:55.073Z - GET /api/auth/secure-endpoint - User: string - Status: 200

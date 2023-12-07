@@ -12,9 +12,13 @@ const { register, login } = require("../controllers/authController");
 const { authenticateUser } = require("../middlewares/authMiddleware");
 const { handleErrors } = require("../middlewares/errorMiddleware");
 const { verifyEmail } = require("../controllers/authController");
+const { listUsers } = require("../controllers/authController");
 const logUserMiddleware = require("../middlewares/logUserMiddleware");
 const timingMiddleware = require("../middlewares/timingMiddleware");
 const rateLimiterWithBan = require("../middlewares/rateLimitterMiddleware");
+const { deleteUser } = require("../controllers/authController");
+const { searchUserByUsername } = require("../controllers/authController");
+
 const router = express.Router();
 
 /**
@@ -133,4 +137,80 @@ router.get(
  */
 router.post("/verify-email", verifyEmail, logUserMiddleware);
 
+/**
+ * @swagger
+ * /api/auth/list-users:
+ *   get:
+ *     summary: List all users
+ *     tags:
+ *       - Authentication
+ *     security:
+ *       - BearerAuth: []
+ *     responses:
+ *       '200':
+ *         description: Successful listing of users
+ */
+router.get("/list-users", authenticateUser, listUsers);
+
+/**
+ * @swagger
+ * /api/auth/delete-user/{id}:
+ *   delete:
+ *     summary: Delete a user by ID
+ *     tags:
+ *       - Authentication
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: ID of the user to be deleted
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       '200':
+ *         description: Successful deletion of the user
+ */
+router.delete("/delete-user/:id", authenticateUser, async (req, res) => {
+  const userId = req.params.id;
+  const result = await deleteUser(userId);
+
+  if (result.success) {
+    res.status(200).json(result);
+  } else {
+    res.status(result.statusCode).json(result);
+  }
+});
+
+/**
+ * @swagger
+ * /api/auth/search-user-by-username/{username}:
+ *   get:
+ *     summary: Search a user by username
+ *     tags:
+ *       - Authentication
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: username
+ *         required: true
+ *         description: Username of the user to be searched
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: Successful search for the user by username
+ */
+router.get("/search-user-by-username/:username", authenticateUser, async (req, res) => {
+  const username = req.params.username;
+  const result = await searchUserByUsername(username);
+  
+  if (result.success) {
+    res.status(200).json(result);
+  } else {
+    res.status(result.statusCode).json(result);
+  }
+});
 module.exports = router;

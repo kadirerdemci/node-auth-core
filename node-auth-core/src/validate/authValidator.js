@@ -18,11 +18,14 @@ function validateLoginInput({ email, password }) {
   const errors = {};
 
   if (!validator.isEmail(email)) {
+
     errors.email = "Invalid email format";
+    
   }
 
   return errors;
 }
+
 
 module.exports = {
   validateRegisterInput,

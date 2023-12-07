@@ -148,3 +148,105 @@ exports.verifyEmail = async (req, res) => {
       .json(new ServiceResponse(false, "Internal Server Error", null, 500));
   }
 };
+exports.verifyEmail = async (req, res) => {
+  try {
+    const { email, verificationCode } = req.body;
+
+    const user = await User.findOne({ where: { email } });
+
+    if (!user) {
+      return res
+        .status(400)
+        .json(
+          new ServiceResponse(
+            false,
+            "Invalid email or verification code",
+            null,
+            400
+          )
+        );
+    }
+
+    if (user.verificationCode !== verificationCode) {
+      return res
+        .status(400)
+        .json(
+          new ServiceResponse(false, "Invalid verification code", null, 400)
+        );
+    }
+
+    if (user.isVerified) {
+      return res
+        .status(400)
+        .json(
+          new ServiceResponse(false, "User is already verified", null, 400)
+        );
+    }
+
+    user.isVerified = true;
+    await user.save();
+
+    return res
+      .status(200)
+      .json(
+        new ServiceResponse(true, "Email verified successfully", null, 200)
+      );
+  } catch (error) {
+    console.error("Error in verifyEmail:", error);
+    return res
+      .status(500)
+      .json(new ServiceResponse(false, "Internal Server Error", null, 500));
+  }
+};
+
+exports.listUsers = async (req, res) => {
+  try {
+    const users = await User.findAll({
+      attributes: { exclude: ["password"] },
+    });
+
+    return res
+      .status(200)
+      .json(new ServiceResponse(true, "Users listed successfully", users, 200));
+  } catch (error) {
+    console.error("Error in listUsers:", error);
+    return res
+      .status(500)
+      .json(new ServiceResponse(false, "Internal Server Error", null, 500));
+  }
+};
+
+exports.deleteUser = async (userId) => {
+  try {
+    const user = await User.findByPk(userId);
+
+    if (!user) {
+      return new ServiceResponse(false, "User not found", null, 404);
+    }
+
+    await user.destroy();
+
+    return new ServiceResponse(true, "User deleted successfully", user, 200);
+  } catch (error) {
+    console.error("Error in deleteUser:", error);
+    return new ServiceResponse(false, "Internal Server Error", null, 500);
+  }
+};
+
+exports.searchUser = async (username) => {
+  try {
+    const user = await User.findByPk(username, {
+      attributes: { exclude: ["password"] },
+    });
+
+    if (!user) {
+      return new ServiceResponse(false, "User not found", null, 404);
+    }
+
+    return new ServiceResponse(true, "User found successfully", user, 200);
+  } catch (error) {
+    console.error("Error in searchUser:", error);
+    return new ServiceResponse(false, "Internal Server Error", null, 500);
+  }
+};
+
