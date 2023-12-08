@@ -8,6 +8,7 @@ const origins = [
   "http://127.0.0.1:5501",
   "http://127.0.0.1:5502",
   "http://localhost:3001",
+  "http://localhost:5173",
 ];
 
 module.exports = origins;

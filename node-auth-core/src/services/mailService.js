@@ -43,9 +43,9 @@ const MailService = {
         500
       );
     }
-  },
+  }, 
 
-  // Diğer fonksiyonlar...
+
 };
 
 module.exports = MailService;

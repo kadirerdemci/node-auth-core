@@ -6,6 +6,7 @@ const generateAuthToken = require("../services/authService").generateAuthToken;
 const ServiceResponse = require("../response/serviceResponse");
 const MailService = require("../services/mailService");
 
+
 exports.register = async (req, res) => {
   try {
     const { username, email, password } = req.body;

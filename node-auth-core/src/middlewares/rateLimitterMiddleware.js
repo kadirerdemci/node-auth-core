@@ -5,7 +5,7 @@ const blockedIPs = new Set();
 
 const rateLimiterMiddleware = rateLimiter({
   windowMs: 15 * 60 * 1000,
-  max: 5,
+  max: 50,
   message: "Too many requests, please try again later",
   handler: (req, res, next) => {
     const ip = req.ip;
